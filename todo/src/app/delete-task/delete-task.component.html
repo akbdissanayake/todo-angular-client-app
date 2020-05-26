@@ -1,0 +1,15 @@
+<div>
+    <h2 mat-dialog-title>Delete Task</h2>
+    <hr>
+    <mat-dialog-content>  
+        
+            <p>You are about to delete this record <b>{{data.taskName}}</b>.</p>
+            <p>Do you want to proceed?</p>
+         
+    </mat-dialog-content>
+    <hr>
+    <mat-dialog-actions>
+        <button class="mat-raised-button"(click)="onCloseConfirm()">Yes</button>
+        <button class="mat-raised-button mat-primary"(click)="onCloseCancel()">No</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,73 @@
+<div class="container">
+  <br>
+  <div class="row">
+     <div class="col-md-6" [@swapTrigger]="todayTasks.length">
+         <div class="row">
+            <div class="col-md-6">
+                <h5 style="text-align: center"><u>Today Tasks</u></h5>
+            </div>
+            <div class="col-md-2">
+                <h6>Date :</h6>
+            </div>
+            <div class="col-md-4">
+                <h6>{{currentDate | date}}</h6>
+            </div>
+         </div>
+        <mat-card  class="example-card" *ngFor="let item of todayTasks; let i = index">
+            <mat-card-header>
+              <div class="row">
+                  <div class="col-sm-7"><b>{{item.taskName}}</b></div>
+                  <div class="col-sm-5" style="text-align: right">
+                      <button mat-stroked-button [ngClass]="{'text-success':item.status == 1, 'text-danger': item.status == 0}" (click)="editStatus(item,0,i)">
+                          {{ item.status === true ? 'Complete' : 'In Progress' }}
+                      </button>
+                  </div>
+              </div>
+            </mat-card-header>
+            <mat-card-content [hidden]="item.status">
+                <div class="row">
+                    <div class="col-sm-6">Task Description</div>
+                    <div class="col-sm-6" style="text-align: right">{{item.description}}</div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-6">Start Date</div>
+                      <div class="col-sm-6"style="text-align: right">{{item.scheduleDate| date}}</div>
+                  </div>
+            </mat-card-content>
+        </mat-card>
+        <br>
+        <div>
+            <button mat-stroked-button matTooltip="Create a new task" color="primary" (click)="openDialog()" min-date="minDate"><mat-icon>add</mat-icon>Create Task</button>
+        </div>
+     </div>
+     <div class="col-md-6" [@swapTrigger]='upcomingTasks.length'>
+        <h5 style="text-align: center"><u>Upcoming Tasks</u></h5>
+        <mat-card class="example-card" *ngFor="let item of upcomingTasks; let i = index">
+            <mat-card-header>
+              <div class="row">
+                  <div class="col-sm-7"><b>{{item.taskName}}</b></div>
+                  <div class="col-sm-5" style="text-align: right">
+                      <button mat-stroked-button [ngClass]="{'text-success':item.status == 1, 'text-danger': item.status == 0}" (click)="editStatus(item,1,i)">
+                          {{ item.status === true ? 'Complete' : 'In Progress' }}
+                      </button>
+                  </div>
+              </div>
+            </mat-card-header>
+            <mat-card-content [hidden]="item.status">
+                <div class="row">
+                    <div class="col-sm-6">Task Description</div>
+                    <div class="col-sm-6" style="text-align: right">{{item.description}}</div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-6">Start Date</div>
+                      <div class="col-sm-6"style="text-align: right">{{item.scheduleDate| date}}</div>
+                  </div>
+            </mat-card-content>
+        </mat-card>
+        <br>
+        <div>
+            <button mat-stroked-button matTooltip="Create a upcoming task" color="primary" (click)="openDialog()"><mat-icon>add</mat-icon>Create Task</button>
+        </div>
+     </div>
+  </div>
+</div>
