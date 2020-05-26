@@ -27,7 +27,7 @@ import { CreateTaskComponent } from '../create-task/create-task.component';
           stagger(
             '300ms',
             animate(
-              '0.6s ease-in',
+              '0.8s ease-in',
               keyframes([
                 style({ opacity: 0, transform: 'translateX(100%)', offset: 0 }),
                 style({
