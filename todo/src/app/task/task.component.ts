@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../services/task.service';
 import { Task } from '../task';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 import { CreateTaskComponent } from '../create-task/create-task.component';
 import { DeleteTaskComponent } from '../delete-task/delete-task.component';
